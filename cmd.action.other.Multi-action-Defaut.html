@@ -1,0 +1,52 @@
+<div style="width:40px;height:100%;vertical-align: top;" class="cmd #history#" data-type="action" data-subtype="other" data-cmd_id="#id#" data-cmd_uid="#uid#" data-version="#version#" data-eqLogic_id="#eqLogic_id#">
+     <!-- Info Widget
+        Basé sur les widget de 	: 
+        Mise à jour				: JAG 20190531 : Correction code pour V4
+    -->
+    <center>
+        <div class="cmdName #hide_name#" style="#hideCmdName#">#valueName#</div>
+        <span class="iconCmd#id# cursor" title="#name#"></span>
+    </center>
+    <script>
+        jeedom.cmd.update['#id#'] = function(_options){
+            // Paramètrage du logo
+                // Valeur pour ON ou 1
+                    var srcImglogoON_M      = ('#logoON-M#'!='#'+'logoON-M#') ? "#logoON-M#" : "day";
+                    var srcImglogoON_M_T    = ('#logoON_type-M#'!='#'+'logoON_type-M#') ? "#logoON_type-M#" : "png";
+                // Valeur pour OFF ou 0
+                    var srcImglogoOFF_M     = ('#logoOFF-M#'!='#'+'logoOFF-M#') ? "#logoOFF-M#" : "night";
+                    var srcImglogoOFF_M_T   = ('#logoOFF_type-M#'!='#'+'logoOFF_type-M#') ? "#logoOFF_type-M#" : "png";
+            // Paramètre "sizeh" & "sizew"
+                    var srcImgHeight_M      = is_numeric('#sizeh-M#') ? parseFloat('#sizeh-M#'):40;
+                    var srcImgWidth_M       = is_numeric('#sizew-M#') ? parseFloat('#sizew-M#'):40;
+                    var srcImgSize_M        = 'height='+srcImgHeight_M+'px width='+srcImgWidth_M+'px';
+            // Paramétrage des images
+                    var srcFolder_M         = ('#dossier-M#'!='#'+'dossier-M#') ? "#dossier-M#" : "Divers";
+                    if (srcFolder_M == 'NULL') {
+                        var srcImgURL_M     = "plugins/widget/core/template/mobile/cmd.action.other.Multi-action-Defaut/";
+                    } else {
+                        var srcImgURL_M     = "plugins/widget/core/template/mobile/cmd.action.other.Multi-action-Defaut/"+srcFolder_M+'/';
+                    };  
+
+            if (_options.display_value == '1' || _options.display_value == 1 || _options.display_value == '99' || _options.display_value == 99 || _options.display_value == 'on') {
+                if (jeedom.cmd.normalizeName('#name#') == 'on') {
+                    $('.cmd[data-cmd_id=#id#]').hide();
+                }else{
+                    $('.cmd[data-cmd_id=#id#]').show();
+                    $('.cmd[data-cmd_id=#id#] .iconCmd#id#').empty().append('<img src="'+srcImgURL_M +srcImglogoON_M +'.'+ srcImglogoON_M_T+'" '+srcImgSize_M+'>');
+                }
+            } else {
+                if (jeedom.cmd.normalizeName('#name#') == 'off') {
+                    $('.cmd[data-cmd_id=#id#]').hide();
+                }else{
+                    $('.cmd[data-cmd_id=#id#]').show();
+                    $('.cmd[data-cmd_id=#id#] .iconCmd#id#').empty().append('<img src="'+srcImgURL_M +srcImglogoOFF_M +'.'+ srcImglogoOFF_M_T+'" '+srcImgSize_M+'>');
+                }
+            }
+        }
+        jeedom.cmd.update['#id#']({display_value:'#state#'});
+        $('.cmd[data-cmd_uid=#uid#] .iconCmd#id#').off().on('click', function () {
+            jeedom.cmd.execute({id: '#id#'});
+        });
+    </script>
+</div>
