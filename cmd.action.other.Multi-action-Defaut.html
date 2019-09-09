@@ -1,7 +1,7 @@
 <div style="width:40px;height:100%;vertical-align: top;" class="cmd #history#" data-type="action" data-subtype="other" data-cmd_id="#id#" data-cmd_uid="#uid#" data-version="#version#" data-eqLogic_id="#eqLogic_id#">
      <!-- Info Widget
         Basé sur les widget de 	: 
-        Mise à jour				: JAG 20190901 : Récupération variable Dashboard
+        Mise à jour				: JAG 20190907 : Normalisation nom images => Merci à mich0111
     -->
     <center>
         <div class="cmdName #hide_name#" style="#hideCmdName#">#valueName#</div>
@@ -15,23 +15,23 @@
                 if (srcImgDashboard_M  == "YES") {
                     // Variables identique avec le Dashboard
                         // Variable Image pour Valeur : ON ou 1
-                            var srcImglogoON_M      = ('#logoON#'!='#'+'logoON#') ? "#logoON#" : "day";
+                            var srcImglogoON_M      = ('#logoON#'!='#'+'logoON#') ? "#logoON#" : "di_day";
                             var srcImglogoON_M_T    = ('#logoON_type#'!='#'+'logoON_type#') ? "#logoON_type#" : "png";
                         // Variable Image pour Valeur : OFF ou 0
-                            var srcImglogoOFF_M	    = ('#logoOFF#'!='#'+'logoOFF#') ? "#logoOFF#" : "night";
+                            var srcImglogoOFF_M	    = ('#logoOFF#'!='#'+'logoOFF#') ? "#logoOFF#" : "di_night";
                             var srcImglogoOFF_M_T   = ('#logoOFF_type#'!='#'+'logoOFF_type#') ? "#logoOFF_type#" : "png";
                         // Variable Dossier
                             var srcFolder_M         = ('#dossier#'!='#'+'dossier#') ? "#dossier#" : "FibaroOeil";
                 } else if (srcImgDashboard_M  == "NO") {
                     // Variables différente avec le Dashboard
                         // Variable Image pour Valeur : ON ou 1
-                            var srcImglogoON_M      = ('#logoON-M#'!='#'+'logoON-M#') ? "#logoON-M#" : "Oeiloff";
+                            var srcImglogoON_M      = ('#logoON-M#'!='#'+'logoON-M#') ? "#logoON-M#" : "di_day";
                             var srcImglogoON_M_T    = ('#logoON_type-M#'!='#'+'logoON_type-M#') ? "#logoON_type-M#" : "png";
                         // Variable Image pour Valeur : OFF ou 0
-                            var srcImglogoOFF_M	    = ('#logoOFF-M#'!='#'+'logoOFF-M#') ? "#logoOFF-M#" : "Oeilon";
+                            var srcImglogoOFF_M	    = ('#logoOFF-M#'!='#'+'logoOFF-M#') ? "#logoOFF-M#" : "di_night";
                             var srcImglogoOFF_M_T   = ('#logoOFF_type-M#'!='#'+'logoOFF_type-M#') ? "#logoOFF_type-M#" : "png";
                         // Variable Dossier
-                            var srcFolder_M         = ('#dossier-M#'!='#'+'dossier-M#') ? "#dossier-M#" : "Divers";
+                            var srcFolder_M         = ('#dossier-M#'!='#'+'dossier-M#') ? "#dossier-M#" : "divers";
                 };
         
         // Paramétrage "sizeh" & "sizew"
