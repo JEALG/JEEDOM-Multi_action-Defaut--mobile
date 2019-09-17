@@ -1,103 +1,74 @@
-<div style="width:40px;height:100%;vertical-align: top;" class="cmd #history#" data-type="action" data-subtype="other" data-cmd_id="#id#" data-cmd_uid="#uid#" data-version="#version#" data-eqLogic_id="#eqLogic_id#">
-     <!-- Info Widget
-        Basé sur les widget de 	: 
-        Mise à jour				: JAG 20190907 : Normalisation nom images => Merci à mich0111
-    -->
-    <center>
-        <div class="cmdName #hide_name#" style="#hideCmdName#">#valueName#</div>
-        <span class="iconCmd#id# cursor" title="#name#"></span>
-    </center>
+<div style="min-width:90px;min-height:62px;" class="cmd tooltips cmd-widget cursor #history#" data-type="action" data-subtype="other" data-cmd_id="#id#" data-cmd_uid="#uid#" data-version="#version#" data-eqLogic_id="#eqLogic_id#">
+  	<!-- Info Widget
+		Basé sur les widget de 	: 
+		Mise à jour 			: JAG 20190917 : Mise à uniquement pour core v4
+	-->
+    <div class="row">
+        <center>
+            <div class="title #hide_name#">
+                <div  class="cmdName" style="#hideCmdName#">#valueName#</div>
+            </div>
+            <div class="content-sm ">
+                <span class="iconCmd#id#" title="#name#"></span>
+            </div>
+        </center>
+    </div>
     <script>
         jeedom.cmd.update['#id#'] = function(_options){
             // Paramètrage du logo
-                    // Récupération image du Dashboard
-                                var srcImgDashboard_M   = ('#Dashboard-M#'!='#'+'Dashboard-M#') ? "#Dashboard-M#" : "YES";
-                if (srcImgDashboard_M  == "YES") {
-                    // Variables identique avec le Dashboard
-                        // Valeur du logo
-                                var srcImglogo_M        = ('#logo#'!='#'+'logo#') ? "#logo#" : "";
-                                var srcImglogo_M_T      = ('#logo_type#'!='#'+'logo_type#') ? "#logo_type#" : "png";
-                    // Paramétrage des images
-                        if (srcImglogo_M == "") {
-                            // Variable Image pour Valeur : ON ou 1
-                                var srcImglogoON_M      = ('#logoON#'!='#'+'logoON#') ? "#logoON#" : "fi_wh_off";
-                                var srcImglogoON_M_T    = ('#logoON_type#'!='#'+'logoON_type#') ? "#logoON_type#" : "png";
-                            // Variable Image pour Valeur : OFF ou 0
-                                var srcImglogoOFF_M     = ('#logoOFF#'!='#'+'logoOFF#') ? "#logoOFF#" : "fi_bu_on";
-                                var srcImglogoOFF_M_T   = ('#logoOFF_type#'!='#'+'logoOFF_type#') ? "#logoOFF_type#" : "png";
-                        } else {
-                            // Variable Image pour Valeur : ON ou 1
-                                var srcImglogoON_M      = srcImglogo_M + '_on';
-                                var srcImglogoON_M_T    = srcImglogo_M_T;
-                            // Variable Image pour Valeur : OFF ou 0
-                                var srcImglogoOFF_M     = srcImglogo_M + '_off';
-                                var srcImglogoOFF_M_T   = srcImglogo_M_T;
-                        };
-                    // Variable Dossier
-                                var srcFolder_M         = ('#dossier#'!='#'+'dossier#') ? "#dossier#" : "fibarooeil";
-                } else if (srcImgDashboard_M  == "NO") {
-                    // Variables identique avec le Dashboard
-                        // Valeur du logo
-                                var srcImglogo_M        = ('#logo-M#'!='#'+'logo-M#') ? "#logo-M#" : "";
-                                var srcImglogo_M_T      = ('#logo_type-M#'!='#'+'logo_type-M#') ? "#logo_type-M#" : "png";
-                    // Paramétrage des images
-                        if (srcImglogo_M == "") {
-                            // Variable Image pour Valeur : ON ou 1
-                                var srcImglogoON_M      = ('#logoON-M#'!='#'+'logoON-M#') ? "#logoON-M#" : "fi_wh_off";
-                                var srcImglogoON_M_T    = ('#logoON_type-M#'!='#'+'logoON_type-M#') ? "#logoON_type-M#" : "png";
-                            // Variable Image pour Valeur : OFF ou 0
-                                var srcImglogoOFF_M     = ('#logoOFF-M#'!='#'+'logoOFF-M#') ? "#logoOFF-M#" : "fi_bu_on";
-                                var srcImglogoOFF_M_T   = ('#logoOFF_type-M#'!='#'+'logoOFF_type-M#') ? "#logoOFF_type-M#" : "png";
-                        } else {
-                            // Variable Image pour Valeur : ON ou 1
-                                var srcImglogoON_M      = srcImglogo_M + '_on';
-                                var srcImglogoON_M_T    = srcImglogo_M_T;
-                            // Variable Image pour Valeur : OFF ou 0
-                                var srcImglogoOFF_M     = srcImglogo_M + '_off';
-                                var srcImglogoOFF_M_T   = srcImglogo_M_T;
-                        };
-                    // Variable Dossier
-                                var srcFolder_M         = ('#dossier-M#'!='#'+'dossier-M#') ? "#dossier-M#" : "fibarooeil";
-                };
-            
-        // Paramétrage "sizeh" & "sizew"
-                // Variable Taile pour image
-                                var srcImgHeight_M      = is_numeric('#sizeh-M#') ? parseFloat('#sizeh-M#'):40;
-                                var srcImgWidth_M       = is_numeric('#sizew-M#') ? parseFloat('#sizew-M#'):40;
-                // Type de taille
-                                var srcImgpourcent_M    = ('#Pourcentage-M#'!='#'+'Pourcentage-M#') ? "#Pourcentage-M#" : "NO";
-                    if (srcImgpourcent_M  == "NO") {
-                                var srcImgSize_M        = 'height='+srcImgHeight_M+'px width='+srcImgWidth_M+'px';
-                    } else if (srcImgpourcent_M  == "YES") {
-                                var srcImgSize_M        = 'height='+srcImgHeight_M+'% width='+srcImgWidth_M+'%';
-                    };
-
-        // Paramétrage Dossier
-                    if (srcFolder_M == 'NULL') {
-                                var srcImgURL_M         = "core/template/dashboard/cmd.action.other.Multi-action-Defaut/";
+                // Valeur du logo
+                            var srcImglogo	    = ('#logo#'!='#'+'logo#') ? "#logo#" : "";
+                            var srcImglogo_T 	= ('#logo_type#'!='#'+'logo_type#') ? "#logo_type#" : "png";
+                // Paramétrage des images
+                    if (srcImglogo == "") {
+                        // Variable Image pour Valeur : ON ou 1
+                            var srcImglogoON    = ('#logoON#'!='#'+'logoON#') ? "#logoON#" : "di_day";
+                            var srcImglogoON_T  = ('#logoON_type#'!='#'+'logoON_type#') ? "#logoON_type#" : "png";
+                        // Variable Image pour Valeur : OFF ou 0
+                            var srcImglogoOFF   = ('#logoOFF#'!='#'+'logoOFF#') ? "#logoOFF#" : "di_night";
+                            var srcImglogoOFF_T = ('#logoOFF_type#'!='#'+'logoOFF_type#') ? "#logoOFF_type#" : "png";
                     } else {
-                                var srcImgURL_M         = "core/template/dashboard/cmd.action.other.Multi-action-Defaut/"+srcFolder_M+'/';
+                        // Variable Image pour Valeur : ON ou 1
+                            var srcImglogoON    = srcImglogo + '_on';
+                            var srcImglogoON_T  = srcImglogo_T;
+                        // Variable Image pour Valeur : OFF ou 0
+                            var srcImglogoOFF   = srcImglogo + '_off';
+                            var srcImglogoOFF_T = srcImglogo_T;
                     };
-        
-        // Affichage durée changement dernier etat
-                            var srcImglogoTime_M    = '#logoTime-M#';
-        
-        // Update Image
-            if (_options.display_value == '1' || _options.display_value == 1 || _options.display_value == '99' || _options.display_value == 99 || _options.display_value == 'on') {
-                if (jeedom.cmd.normalizeName('#name#') == 'on') {
-                    $('.cmd[data-cmd_id=#id#]').hide();
-                }else{
-                    $('.cmd[data-cmd_id=#id#]').show();
-                    $('.cmd[data-cmd_id=#id#] .iconCmd#id#').empty().append('<img src="'+srcImgURL_M +srcImglogoON_M +'.'+ srcImglogoON_M_T+'" '+srcImgSize_M+'>');
+            
+            // Paramètre "sizeh" & "sizew"
+                            var srcImgHeight    = is_numeric('#sizeh#') ? parseFloat('#sizeh#'):80;
+                            var srcImgWidth     = is_numeric('#sizew#') ? parseFloat('#sizew#'):80;
+                    // Type de taille
+                            var srcImgpourcent  = ('#Pourcentage#'!='#'+'Pourcentage#') ? "#Pourcentage#" : "NO";
+                        if (srcImgpourcent  == "NO") {
+                            var srcImgSize      = 'height='+srcImgHeight+'px width='+srcImgWidth+'px';
+                        } else if (srcImgpourcent  == "YES") {
+                            var srcImgSize      = 'height='+srcImgHeight+'% width='+srcImgWidth+'%';
+                        }
+            // Paramétrage des images
+                            var srcFolder       = ('#dossier#'!='#'+'dossier#') ? "#dossier#" : "divers";
+                if (srcFolder == 'NULL') {
+                            var srcImgURL       = "core/template/dashboard/cmd.action.other.Multi-action-Defaut/";
+                } else {
+                            var srcImgURL       = "core/template/dashboard/cmd.action.other.Multi-action-Defaut/"+srcFolder+'/';
+                };  
+            //Update
+                if (_options.display_value == '1' || _options.display_value == 1 || _options.display_value == '99' || _options.display_value == 99 || _options.display_value == 'on') {
+                    if (jeedom.cmd.normalizeName('#name#') == 'on') {
+                        $('.cmd[data-cmd_id=#id#]').hide();
+                    }else{
+                        $('.cmd[data-cmd_id=#id#]').show();
+                        $('.cmd[data-cmd_id=#id#] .iconCmd#id#').empty().append('<img src="'+srcImgURL +srcImglogoON +'.'+ srcImglogoON_T+'" '+srcImgSize+'>');
+                    }
+                } else {
+                    if (jeedom.cmd.normalizeName('#name#') == 'off') {
+                        $('.cmd[data-cmd_id=#id#]').hide();
+                    }else{
+                        $('.cmd[data-cmd_id=#id#]').show();
+                        $('.cmd[data-cmd_id=#id#] .iconCmd#id#').empty().append('<img src="'+srcImgURL +srcImglogoOFF +'.'+ srcImglogoOFF_T+'" '+srcImgSize+'>');
+                    }
                 }
-            } else {
-                if (jeedom.cmd.normalizeName('#name#') == 'off') {
-                    $('.cmd[data-cmd_id=#id#]').hide();
-                }else{
-                    $('.cmd[data-cmd_id=#id#]').show();
-                    $('.cmd[data-cmd_id=#id#] .iconCmd#id#').empty().append('<img src="'+srcImgURL_M +srcImglogoOFF_M +'.'+ srcImglogoOFF_M_T+'" '+srcImgSize_M+'>');
-                }
-            }
         }
         jeedom.cmd.update['#id#']({display_value:'#state#'});
         $('.cmd[data-cmd_uid=#uid#] .iconCmd#id#').off().on('click', function () {
