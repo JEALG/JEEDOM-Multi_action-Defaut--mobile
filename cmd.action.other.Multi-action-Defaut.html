@@ -1,18 +1,20 @@
 <div style="min-width:90px;min-height:62px;" class="cmd tooltips cmd-widget cursor #history#" data-type="action" data-subtype="other" data-cmd_id="#id#" data-cmd_uid="#uid#" data-version="#version#" data-eqLogic_id="#eqLogic_id#">
   	<!-- Info Widget
 		Basé sur les widget de 	: 
-		Mise à jour 			: JAG 20190918 : Migration uniquement pour core V4
+		Mise à jour 			: JAG 20191124 : Correction centrage + Taille Image par défaut
 	-->
-    <div class="row">
-        <center>
-            <div class="title #hide_name#">
-                <div  class="cmdName" style="#hideCmdName#">#valueName#</div>
-            </div>
-            <div class="content-sm ">
-                <span class="iconCmd#id#" title="#name#"></span>
-            </div>
-        </center>
-    </div>
+    <center>
+        <div class="row">
+            <center>
+                <div class="title #hide_name#">
+                    <div  class="cmdName" style="#hideCmdName#">#valueName#</div>
+                </div>
+                <div class="content-sm ">
+                    <span class="iconCmd#id#" title="#name#"></span>
+                </div>
+            </center>
+        </div>
+    </center>
     <script>
         jeedom.cmd.update['#id#'] = function(_options){
             // Paramètrage du logo
@@ -37,8 +39,8 @@
                     };
             
             // Paramètre "sizeh" & "sizew"
-                            var srcImgHeight    = is_numeric('#sizeh#') ? parseFloat('#sizeh#'):80;
-                            var srcImgWidth     = is_numeric('#sizew#') ? parseFloat('#sizew#'):80;
+                            var srcImgHeight    = is_numeric('#sizeh#') ? parseFloat('#sizeh#'):40;
+                            var srcImgWidth     = is_numeric('#sizew#') ? parseFloat('#sizew#'):40;
                     // Type de taille
                             var srcImgpourcent  = ('#Pourcentage#'!='#'+'Pourcentage#') ? "#Pourcentage#" : "NO";
                         if (srcImgpourcent  == "NO") {
