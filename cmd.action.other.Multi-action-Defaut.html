@@ -1,7 +1,8 @@
 <div style="min-width:90px;min-height:62px;" class="cmd tooltips cmd-widget cursor #history#" data-type="action" data-subtype="other" data-cmd_id="#id#" data-cmd_uid="#uid#" data-version="#version#" data-eqLogic_id="#eqLogic_id#">
     <!-- Info Widget
-		Basé sur les widget de 	: 
-		Mise à jour 			: JAG 20191227 : Correction centrage + Taille Image par défaut
+		Basé sur les widget de 	    :
+		Widget pour le Core         : V4
+        Mise à jour	                : JAG 20200502 => Ajout Version Core
 	-->
     <center>
         <div class="cmdName #hide_name#">#valueName#</div>
@@ -10,6 +11,7 @@
 
     <script>
         jeedom.cmd.update['#id#'] = function(_options) {
+            var cmd = $('.cmd[data-cmd_id=#id#]');
             // Paramètrage du logo
             // Valeur du logo
             var srcImglogo = ('#logo#' != '#' + 'logo#') ? "#logo#" : "";
@@ -32,8 +34,8 @@
             };
 
             // Paramètre "sizeh" & "sizew"
-            var srcImgHeight = is_numeric('#sizeh#') ? parseFloat('#sizeh#') : 40;
-            var srcImgWidth = is_numeric('#sizew#') ? parseFloat('#sizew#') : 40;
+            var srcImgHeight_M = is_numeric('#sizeh#') ? parseFloat('#sizeh#') : 40;
+            var srcImgWidth_M = is_numeric('#sizew#') ? parseFloat('#sizew#') : 40;
             // Type de taille
             var srcImgpourcent = ('#Pourcentage#' != '#' + 'Pourcentage#') ? "#Pourcentage#" : "NO";
             if (srcImgpourcent == "NO") {
