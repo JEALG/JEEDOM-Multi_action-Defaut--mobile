@@ -2,7 +2,7 @@
 	<!-- Info Widget
         Widget de           : JAG
         Widget pour le Core : V4
-        Mise à jour         : JAG 20201208 => Correction Bug non affichage image
+        Mise à jour         : JAG 20201220 => Update suite changement localisation image
 	-->
 	<center>
 		<div class="cmdName #hide_name#">#valueName#</div>
@@ -47,9 +47,9 @@
 			// Paramétrage des images
 			var srcFolder = ('#dossier#' != '#' + 'dossier#') ? "#dossier#" : "divers";
 			if (srcFolder == 'NULL') {
-				var srcImgURL = "data/customTemplates/dashboard/cmd.action.other.Multi-action-Defaut/";
+				var srcImgURL = "data/img/";
 			} else {
-				var srcImgURL = "data/customTemplates/dashboard/cmd.action.other.Multi-action-Defaut/" + srcFolder + '/';
+				var srcImgURL = "data/img/" + srcFolder + '/';
 			};
 			//Update
 			if (_options.display_value == '1' || _options.display_value >= 1 || _options.display_value == '99' || _options.display_value == 99 || _options.display_value == 'on') {
